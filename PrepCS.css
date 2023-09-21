@@ -1,0 +1,80 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 16px;
+    background: #524d52;
+    border: solid 1px;
+    height: 90px;
+  }
+nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+nav li {
+    padding-left: 16px;
+  }
+nav a {
+    float: left;
+    padding: 16px 16px;
+    text-decoration: none;
+    color: #ced0d6;
+    font-size: 28px;
+  }
+nav a:hover {
+    font-size: 35px;
+    text-decoration: none;
+    color: #1bdd3c;
+  }
+nav a.active {
+    font-size: 28px;
+    text-decoration: none;
+    background-color: #3375FA;
+  }
+.container {
+    background-color: white;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+body {
+  background-image: url("kermit.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.confirm {
+  background-color: red;
+  border-radius: 5px;
+}
+.h22 {
+  padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #bdd268;
+    max-width: 50%;
+    border-radius: 5px;
+}
+p {
+  font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    max-width: 50%;
+}
+.p2 {
+  font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    max-width: 25%;
+}
+img{
+  height: 250px;
+  width: 400px;
+}
