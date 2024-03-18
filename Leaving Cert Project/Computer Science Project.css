@@ -1,0 +1,106 @@
+nav ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #1f1b1b;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+nav li {
+  float: left;
+  border-right: 3px solid #bbb;
+  font-size: 20px;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: #632020;
+}
+
+nav .active {
+  background-color: #a72828;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  border: #1f1b1b;
+  background-color: aqua;
+}
+
+label {
+  margin: 0;
+}
+
+.investigation {
+  margin-top: 70px;
+}
+
+.graph {
+  margin-top: 70px;
+  background-color: rgb(214, 247, 247);
+}
+
+.feedback {
+  margin-top: 20px;
+  font-size: large;
+}
+.review1 {
+  margin-top: 80px;
+  font-size: larger;
+  text-align: center;
+}
+.review2 {
+  font-size: larger;
+  text-align: center;
+}
+.format {
+  width: 60%;
+  border-radius: 10px;
+  background-color: #d4f7df;
+  font-size: 22px;
+}
+
+.text {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.active_heading{
+  margin-top:80px
+}
+
+.activity {
+  font-size: large;
+}
+
+body {
+  background-image: url(data:image/jpeg;base64,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);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.rev {
+  width: 100%;
+  border-radius: 10px;
+  background-color: #d4f7df;
+  font-size: 22px;
+  text-align: center;
+}
+th, td {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}

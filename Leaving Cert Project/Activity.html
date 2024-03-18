@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Computer Science Project</title>
+        <link type="text/css" href="Computer Science Project.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav>
+            <ul class="navbar">
+                <li class="Homepage"><a href="Computer Science Project.html">Homepage</a></li>
+                <li><a href="CS Investigation.html">Computer Science Investigation</a></li>
+                <li><a href="CS Plan.html">Computer Science Plan & Design</a></li>
+                <li><a href="Graph.html">Graph</a></li>
+                <li><a href="StarReview.html">Review</a></li>
+                <li><a class="active" href="Activity.html">Recommendations</a></li>
+                
+        </nav>
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAzzWBWjYTNnE6lL7ss81PSH96eHdRoAiw",
+            authDomain: "a-name-35a70.firebaseapp.com",
+            databaseURL: "https://a-name-35a70-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "a-name-35a70",
+            storageBucket: "a-name-35a70.appspot.com",
+            messagingSenderId: "1074350828397",
+            appId: "1:1074350828397:web:1cb79aa6bb127031b98864",
+            measurementId: "G-953SYRP5V9"
+            };
+            const app = initializeApp(firebaseConfig);
+            import { getDatabase, ref, onChildAdded } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+            const db = getDatabase(); 
+            const dbRef = ref(db)
+            const commentsRef = ref(db, "timer/");
+            let freetime = parseFloat(prompt("How much freetime do you have in hours? "))
+            function activity(hours, freetime, age){
+                if(age >= 18){
+                    if(hours >= 5){
+                        if(freetime <= 1){
+                            document.getElementById("freetime").innerHTML = "The model would recommend that you use your freetime to read a book to improve mental wellbeing, e.g. novel, comic book, magazine."
+                        }
+                        else if(freetime > 1 && freetime <= 2){
+                            document.getElementById("freetime").innerHTML = "The model would recommend that you use your freetime to go for a walk and get fresh air to improve mental wellbeing."
+                        }
+                        else{
+                            document.getElementById("freetime").innerHTML = "The model would recommend that you use your freetime to go play sports of some sort to improve physical and mental wellbeing, e.g. football, basketball, tennis. "
+                        }
+                    }
+                   else if(hours >= 2 && hours < 5){
+                        if(freetime <= 1){
+                            document.getElementById("freetime").innerHTML = "The model would recommend that you use your freetime to do some yoga exercises to improve physical and mental wellbeing"
+                        }
+                        else if(freetime > 1 && freetime <= 2){
+                            document.getElementById("freetime").innerHTML = "The model would recommend that you use your freetime to do brain training exercises to improve mental wellbeing, e.g. sudoku, crosswords, jigsaws."
+                        }
+                        else{
+                            document.getElementById("freetime").innerHTML = "The model would recommend that you use your freetime to do some light physical exercises to improve physical and mental wellbeing, e.g. push-ups, sit-ups, lunges."
+                        }
+                }else if(hours < 2){
+                    if(freetime <= 1){
+                            document.getElementById("freetime").innerHTML = "The model would recommend that you use your freetime to engage in some mindfullness exercises to improve mental wellbeing"
+                        }
+                        else if(freetime > 1 && freetime <= 2){
+                            document.getElementById("freetime").innerHTML = "The model would recommend that you use your freetime to go on a short jog to improve mental and physical wellbeing."
+                        }
+                        else{
+                            document.getElementById("freetime").innerHTML = "The model would recommend that you use your freetime to do some aerobic exercise in order to improve physical and mental wellbeing, e.g. weight lifting, cycling, swimming, running."
+                }
+                }
+            }
+            else if(age < 18){
+                if(hours >= 5){
+                        if(freetime <= 1){
+                            document.getElementById("freetime").innerHTML = "The model would recommend that you use your freetime to go for a nature walk to improve mental wellbeing."
+                        }
+                        else if(freetime > 1 && freetime <= 2){
+                            document.getElementById("freetime").innerHTML = "The model would recommend that you use your freetime to study/read a book to improve mental wellbeing."
+                        }
+                        else{
+                            document.getElementById("freetime").innerHTML = "The model would recommend that you use your freetime to draw/paint a picture to improve mental wellbeing."
+                        }
+                    }
+                   else if(hours >= 2 && hours < 5){
+                        if(freetime <= 1){
+                            document.getElementById("freetime").innerHTML = "The model would recommend that you use your freetime to do some chores around the house to improve mental wellbeing, e.g. washing the dishes, cleaning your room."
+                        }
+                        else if(freetime > 1 && freetime <= 2){
+                            document.getElementById("freetime").innerHTML = "The model would recommend that you use your freetime to play some board games with others such as siblings, parents, or friends to improve mental wellbeing."
+                        }
+                        else{
+                            document.getElementById("freetime").innerHTML = "The model would recommend that you use your freetime to play some sport-like games to improve physical and mental wellbeing, e.g. football games with friends or family."
+                        }
+                }else if(hours < 2){
+                    if(freetime <= 1){
+                            document.getElementById("freetime").innerHTML = "The model would recommend that you use your freetime to engage in creative writing to improve mental wellbeing."
+                        }
+                        else if(freetime > 1 && freetime <= 2){
+                            document.getElementById("freetime").innerHTML = "The model would recommend that you use your freetime to go for a run to improve physical and mental wellbeing."
+                        }
+                        else{
+                            document.getElementById("freetime").innerHTML = "The model would recommend that you use your freetime to construct something, e.g. lego, clay, costumes."
+                }
+                }
+            }
+        }
+        onChildAdded(commentsRef, (data) => {
+            var hours = data.val().Hours
+            var minutes = data.val().Minutes
+            var age = data.val().Age
+            var response = ""
+            hours = parseInt(hours)
+            minutes = parseInt(minutes)
+            hours = parseInt(hours*60)
+            minutes = parseInt(minutes + hours)
+            hours = parseFloat(minutes/60)
+            if(freetime <= 2){
+                activity(hours, freetime, age)
+            }
+            else if(freetime <= 5 && freetime > 2){
+                activity(hours, freetime, age)
+            }
+            else{
+                activity(hours, freetime, age)
+            }
+        }
+        )
+    </script>
+    <div class="rev">
+    <h1 class="active_heading">What to do with your freetime?</h1>
+    <p class="activity" id="freetime"></p>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Computer Science Project</title>
+        <link type="text/css" href="Computer Science Project.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+        </script>
+        <style>
+          body {text-align: center;}
+      </style>
+      <script type="module" src="https://unpkg.com/chart.js@4.2.1/dist/chart.umd.js"></script>
+    </head>
+    <body>
+        <nav>
+            <ul class="navbar">
+                <li class="Homepage"><a href="Computer Science Project.html">Homepage</a></li>
+                <li><a href="CS Investigation.html">Computer Science Investigation</a></li>
+                <li><a href="CS Plan.html">Computer Science Plan & Design</a></li>
+                <li><a class="active" href="Graph.html">Graph</a></li>
+                <li><a href="StarReview.html">Review</a></li>
+                <li><a href="Activity.html">Recommendations</a></li>
+        </nav>
+
+        <canvas class="graph" id="myChart" style="width:100%;max-width:7000px"></canvas>
+        <script type="module">
+       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAzzWBWjYTNnE6lL7ss81PSH96eHdRoAiw",
+    authDomain: "a-name-35a70.firebaseapp.com",
+    databaseURL: "https://a-name-35a70-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "a-name-35a70",
+    storageBucket: "a-name-35a70.appspot.com",
+    messagingSenderId: "1074350828397",
+    appId: "1:1074350828397:web:1cb79aa6bb127031b98864",
+    measurementId: "G-953SYRP5V9"
+  };
+  let check = []
+  const app = initializeApp(firebaseConfig);
+  import { getDatabase, ref, onChildAdded } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+    
+            const ctx = document.getElementById('myChart');
+        const db = getDatabase(); 
+        const dbRef = ref(db)   
+        const commentsRef = ref(db, "timer/");
+            onChildAdded(commentsRef, (data) => {
+            console.log(data.key, data.val());
+            var date = new Date(data.key * 1000)
+            let mm = date.getMonth() + 1;
+        let dd = date.getDate();
+        let hr = date.getHours();
+        let mn = date.getMinutes();
+        let sc = date.getSeconds();
+        
+        if (dd < 10) dd = '0' + dd;
+        if (mm < 10) mm = '0' + mm;
+        if (mn < 10) mn = '0' + mn;
+        var years_old = data.val().Age
+        var hours = data.val().Hours
+        var minutes = data.val().Minutes
+        var response = ""
+        hours = parseInt(hours)
+        minutes = parseInt(minutes)
+        hours = parseInt(hours*60)
+        minutes = parseInt(minutes + hours)
+        hours = parseFloat(minutes/60)
+        check.push(hours)
+        console.log(check)
+        function screentime(a){
+          let average = 0
+          for(let i = 0; i<a.length; i++){
+            average = a[i] + average
+          }
+          average = average / a.length
+          console.log(average)
+          if(average >= 4 && average < 8) {
+            response = "This is an unhealthy screentime, you should aim to reduce your screentime below 4 hours every day in order to improve mental health."
+          }
+          else if(average >= 8){
+            response = "This screentime is considerably unhealthy and you should aim to seriously reduce your screentime as this large an amount could prove seriously damaging to mental health if this remains consistent."
+          }
+          else if(average < 4){
+            response = "This is considered a healthy screentime and you seem to be making good progress, keep up the good work and I hope your wellbeing improves further."
+          }
+        }
+        function age(dob, x, y){
+          if(dob<x){
+            response = "Children below the age of 5 should spend no longer than 1 hour per day on electronic devices, and should only do so under parental supervision. Exceeding this amount could be damaging to their development and have longlasting effects on their mental health."
+          }
+          else if(dob>=x && dob<=x){
+            response = "Children between the ages of 5 and 17 should spend no more than 2 hours per day on electronic devices apart from time spent doing homework."
+          }
+          else{
+            screentime(check)
+          }
+        }
+        age(years_old, 5, 17)
+        //check.sort(function(a, b){return b - a})
+        document.getElementById("feedback").innerHTML = response
+        console.log(response)
+        const formatteddate = dd + '_' + mm + ' ' + hr +':'+ mn +':'+ sc;
+            console.log(formatteddate)
+           chart.data.labels.push(formatteddate);
+           chart.data.datasets[0].data.push(hours);
+           chart.update('none');   
+         });
+        var chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [], 
+        datasets: [{
+          label: 'Time',
+          data: [],
+          borderWidth: 1,
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+          </script>
+      <div class="rev">
+      <p class="feedback" id="feedback"></p>
+    </div>
+    </body>
+</html>

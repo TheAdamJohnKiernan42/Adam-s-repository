@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Computer Science Project</title>
+        <link type="text/css" href="Computer Science Project.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav>
+            <ul class="navbar">
+                <li class="Homepage"><a href="Computer Science Project.html">Homepage</a></li>
+                <li><a href="CS Investigation.html">Computer Science Investigation</a></li>
+                <li><a href="CS Plan.html">Computer Science Plan & Design</a></li>
+                <li><a href="Graph.html">Graph</a></li>
+                <li><a class="active" href="StarReview.html">Review</a></li>
+                <li><a href="Activity.html">Recommendations</a></li>
+
+        </nav> 
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAzzWBWjYTNnE6lL7ss81PSH96eHdRoAiw",
+            authDomain: "a-name-35a70.firebaseapp.com",
+            databaseURL: "https://a-name-35a70-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "a-name-35a70",
+            storageBucket: "a-name-35a70.appspot.com",
+            messagingSenderId: "1074350828397",
+            appId: "1:1074350828397:web:1cb79aa6bb127031b98864",
+            measurementId: "G-953SYRP5V9"
+            };
+            const app = initializeApp(firebaseConfig);
+            import { getDatabase, ref, onChildAdded } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+            const db = getDatabase(); 
+            const dbRef = ref(db)
+            const commentsRef = ref(db, "timer/"); 
+            let scale = parseInt(prompt("How would you rate your mental wellbeing on a scale of 1 to 10 after using this program"))
+            function review(rating, x, y, rated, user){
+                if(rating >= x && rating <= y){
+                    document.getElementById("like").innerHTML = rating
+                    if(rating > rated){
+                        document.getElementById("response").innerHTML = user + ", the machine algorithm indicated that your mental health has improved as a result of using this program, thank you for your feedback."
+                    }
+                    else if(rating < rated){
+                        document.getElementById("response").innerHTML = user + ", the machine algorithm indicated that your mental health has worsened after using the program, if you keep using the program, then mental health will eventually improve."
+                    }
+                    else if(rating == rated){
+                        document.getElementById("response").innerHTML = user + ", the machine algorithm indicated that your mental health hasn't changed from using this program. Keep at it and mental health will improve next time."
+                    }
+                    
+                }
+                else{
+                    alert("This is not a valid argument!")
+                    let scale = parseInt(prompt("How would you rate your mental wellbeing on a scale of 1 to 10 after using this program"))
+                    review(scale, 1, 10, old_rating, username)
+                }
+            }
+            
+    onChildAdded(commentsRef, (data) => {
+            var old_rating = data.val().Wellbeing
+            var username = data.val().User
+            
+            review(scale, 1, 10, old_rating, username)
+        })
+        </script>
+        <div class="rev">
+        <p class="review1">Thank you for your feedback, we greatly appreciate your input</p>
+        <p class="review2">Your rating was</p>
+        <p class="review2" id="like"></p>
+        <p class="review2" id="response"></p>
+    </div>
+    </body>
+</html>
