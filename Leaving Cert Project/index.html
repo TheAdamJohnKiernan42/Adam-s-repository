@@ -7,176 +7,35 @@
     <body>
         <nav>
             <ul class="navbar">
-                <li class="Homepage"><a class="active" href="index.html">Homepage</a></li>
-                <li><a href="CS Investigation.html">Computer Science Investigation</a></li>
+                <li><a class="active" href="index.html">Meeting the Brief</a></li>
                 <li><a href="CS Plan.html">Computer Science Plan & Design</a></li>
+                <li class="Homepage"><a href="Create.html">Create</a></li>
                 <li><a href="Graph.html">Graph</a></li>
                 <li><a href="StarReview.html">Review</a></li>
                 <li><a href="Activity.html">Recommendations</a></li>
-
+                
         </nav>
-        <h1 class="investigation">Video</h1>
-        <video width="500" height="350" controls><source src="Leaving Cert Video.mp4" type="video/mp4"></video>
-    <h1>Computer Science Create</h1>
-    <h2>Weekly Log</h2>
+    <h1 class="investigation">Video</h1>
+    <video width="500" height="350" controls><source src="Leaving Certificate Video.m4v" type="video/mp4"></video>
+    <h1>Computer Science Investigation</h1>
     <div class="format">
-        <h3>Week 1</h3>
-        <p>I read over the brief and researched several embedded systems to take inspiration for my own embedded system. I decided to go down the route of reducing screentime in order to improve wellbeing by using a countdown timer to track user screentime. </p>
-        <h3>Week 2</h3>
-        <p>I finalized this system as my idea and began to work vigorously on it. I worked on my investigation to clearly lay out what I need	ed to do for my project to meet all of the requirements. </p>
-        <h3>Week 3</h3>
-        <p>Throughout week 3, I completed my investigation and began to work on my plan and design to mind map what my system will do, how it will carry out its functions and clearly display how my system operates using flowcharts and thinkercad to make an architect diagram. </p>
-        <h3>Week 4</h3>
-        <p>In my 4th week, I completed my plan and design, neatly formatting it and I listed out what I needed to do for my what ifs and analysis component. </p>
-        <h3>Week 5</h3>
-        <p>I began working on microsoft makecode to program what my microbit would do for my system, setting the functions for each of the microbit’s buttons and inputs for my system, such as how to set screentime for the user using the microbit and how to meet the advanced requirements using data sent by the microbit. </p>
-        <h3>Week 6</h3>
-        <p>I had finished the microbit code in makecode and began to work on the python code to send microbit data to firebase. I added inputs to take age, name, and wellbeing level for parameters to answer my what if questions. </p>
-        <h3>Week 7</h3>
-        <p>I continued to work on my code for sending data to firebase and making sure that everything that I wanted to send was sending correctly. </p>
-        <h3>Week 8</h3>
-        <p>I spent week 8 working on reading data from firebase and drawing conclusions based on a case study to give the user feedback on the impact of their screentime on their mental health, which meets my analysis component. </p>
-        <h3>Week 9</h3>
-        <p>I spent the week making a graph that used the data for hours and minutes from firebase and converted minutes into a percentage of hours to be displayed on the graph. </p>
-        <h3>Week 10</h3>
-        <p>Week 10 was spent finishing up the code for the graph. I also started working on a review scale for one of my what if questions. </p>
-        <h3>Week 11</h3>
-        <p>I finished my review scale and made a program to offer user feedback on activities they should do based on age, screentime and free time. </p>
-        <h3>Week 12</h3>
-        <p>I spent the final week filming and editing the video, as well as testing the code to make sure everything was working. </p>
-    </div>
-    <h2>Unit Testing</h2>
-    <img width="50%" src="wellbeing.png">
-    <div class="format">
-    <table>
-        <tr>
-            <th>Input Value</th>
-            <th>Expected Output</th>
-            <th>Actual Output</th>
-            <th>Pass</th>
-        </tr>
-        <tr>
-            <td>17</td>
-            <td>Invalid input</td>
-            <td>Invalid input</td>
-            <td>N</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>7</td>
-            <td>7</td>
-            <td>Y</td>
-        </tr>
-        <tr>
-            <td>W</td>
-            <td>Invalid input</td>
-            <td>Invalid input</td>
-            <td>N</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>Y</td>
-        </tr>
-        <tr>
-            <td>A3</td>
-            <td>Invalid input</td>
-            <td>Invalid input</td>
-            <td>N</td>
-        </tr>
-    </table>
-    </div>
-    <img class="investigation" width="50%" src="review.png">
-    <div class="format">
-    <table>
-        <tr>
-            <th>Input Value</th>
-            <th>Expected Output</th>
-            <th>Actual Output</th>
-            <th>Pass</th>
-        </tr>
-        <tr>
-            <td>rating=7 rated=6 user=John</td>
-            <td>John, the machine algorithm indicated that your mental health has improved as a result of using this program, thank you for your feedback.</td>
-            <td>John, the machine algorithm indicated that your mental health has improved as a result of using this program, thank you for your feedback.</td>
-            <td>Y</td>
-        </tr>
-        <tr>
-            <td>rating=25 rated=9 user=Brian</td>
-            <td>This is not a valid argument!</td>
-            <td>This is not a valid argument!</td>
-            <td>N</td>
-        </tr>
-        <tr>
-            <td>rating=a rated=9 user=Kevin</td>
-            <td>This is not a valid argument!</td>
-            <td>This is not a valid argument!</td>
-            <td>N</td>
-        </tr>
-        <tr>
-            <td>rating=7 rated=8 user=Abraham</td>
-            <td>Abraham, the machine algorithm indicated that your mental health has worsened after using the program, if you keep using the program, then mental health will eventually improve.</td>
-            <td>Abraham, the machine algorithm indicated that your mental health has worsened after using the program, if you keep using the program, then mental health will eventually improve.</td>
-            <td>Y</td>
-        </tr>
-        <tr>
-            <td>rating=9 rated=9 user=Oisin</td>
-            <td>Oisin, the machine algorithm indicated that your mental health hasn't changed from using this program. Keep at it and mental health will improve next time.</td>
-            <td>Oisin, the machine algorithm indicated that your mental health hasn't changed from using this program. Keep at it and mental health will improve next time.</td>
-            <td>Y</td>
-        </tr>
-    </table>
-    </div>
-    <h2>Problem Faced</h2>
-    <div class="format">
-        <p>The biggest problem that I faced whilst making my model was an issue I encountered when using Microsoft MakeCode to send data to Python, which would then send to Firebase. The issue that I encountered was that the data from the microbit wasn't being sent to Python properly, and to Firebase by extension. Data would sometimes either not send, or duplicate itself and send seemingly random values. The way I resolved this issue was if I made any changes to MakeCode, I would download it to the microbit and then disconnect the microbit from MakeCode, which allowed the data to send correctly.</p>
-    </div>
-    <h2>Important Code</h2>
-    <img width="50%" src="important.png">
-    <div class="format">
-        <p>The most important piece of code for me was the code that I used to send data to firebase from my microbit through python, as without that code, data would not be stored anywhere for my model to use. It stores each character from my microbit data into a string until it reaches a certain character, where it converts certain characters into integers for my model to use as time, before emptying its values to be used again.</p>
-    </div>
-    <h1 class="investigation">Evaluation</h1>
-    <div class="format">
-        <p>I believe that throughout the process of doing this project, I have achieved what I had intially set out to accomplished and created a model that has the purpose of improving wellbeing in some form. I believe I have achieved this as my model meets the basic requirements and advanced requirements that I set out to meet since the start of the project and meets the intended purpose of improving wellbeing through reducing screentime. In my opinion, it meets the requirements quite well, and my plan & design and investigation back up my claims as I believe that I have listed clearly everything that my model incorporates as well as its functions. It meets the basic requirements as it uses analogue and digital outputs and inputs, stores data in firebase through the use of python, and has an analysis component that runs a calculation which gives the user feedback based on their average screentime. My model also meets the advanced requirements through having 2 functioning programs to answer my what if questions as well as displaying information from firebase onto a graph. My Create I believe is also of high quality as it contains a weekly log, unit testing of some pieces of my code, a problem that I had faced, and an important piece of my code. The model meets the end requirements of the user through offering feedback to them on how to improve mental wellbeing and allowing them to give feedback on their mental wellbeing, from which the system can offer advice. If I were to make improvements upon my model, I would add more features to check how often the program was used, how consistent the usage was, as well as adding a system to assign daily goals to the user and congratulate the user upon accomplishing these tasks.</p>
-    </div>
-    <h1>References</h1>
-    <div class="format">
-        <p>Happify. “Happify: Science-Based Activities and Games.” Happify.com, 2022, www.happify.com/.</p>
-        <p>Johnson, Allie. “Screen Time Recommendations by Age.” All about Vision, 9 Mar. 2022, www.allaboutvision.com/conditions/refractive-errors/screen-time-by-age/.</p>
-        <p>“Meditation and Sleep Made Simple - Headspace.” Headspace.com, 2024, www.headspace.com/?utm_source=google&utm_medium=search&utm_campaign=HS_Headspace_Brand-Exact_Search_IE-INT_Google_NA&utm_content=&utm_term=headspace&gad_source=1&gclid=CjwKCAjw48-vBhBbEiwAzqrZVB387ZPI2Vw5-gCuUhqkuAyuNGXlGqao_C4M8hrCRxvuoE0Mww4iFhoCA3oQAvD_BwE.</p>
-        <p>“RescueTime: Fully Automated Time Tracking Software.” Rescuetime.com, 2019, www.rescuetime.com/.</p>
-        <p>W3Schools. “W3Schools Online Web Tutorials.” W3schools.com, 2019, www.w3schools.com.</p>
-    </div>
-    <h1>Word Count</h1>
-    <div class="format">
-        <table>
-            <tr>
-                <th>Section</th>
-                <th>Word Count</th>
-            </tr>
-            <tr>
-                <td>Investigation</td>
-                <td>415</td>
-            </tr>
-            <tr>
-                <td>Plan & Design</td>
-                <td>348</td>
-            </tr>
-            <tr>
-                <td>Create</td>
-                <td>864</td>
-            </tr>
-            <tr>
-                <td>Evaluation</td>
-                <td>303</td>
-            </tr>
-            <tr>
-                <td>Total</td>
-                <td>1,930</td>
-            </tr>
-        </table>
+    <p class="text">As a part of my investigation, I have looked at several systems for which to base my model upon. Out of the systems I looked at, 3 stood out to me. The first system I looked at was a website/application called Headspace. (“Meditation and Sleep Made Simple - Headspace”) This system is used to help people have a healthy sleep schedule as well as improving their mental wellbeing. The second system I looked at is known as Happify, uses the science behind mental wellbeing in order to reduce stress and anxiety, whilst tracking the user’s progress along the way. (Happify) The final system I looked at is titled RescueTime, which is a system used to limit the user’s screentime, keep an organized schedule of their day, and allows the user to block sites that distract them the most. (“RescueTime: Fully Automated Time Tracking Software”) </p>
+
+    <p class="text">From all these systems, I have incorporated several aspects of them into my own system, which is designed to limit screentime and measure the effect it has on your mental wellbeing as well as monitoring what activities you get up to with the free time you have from the lack of screentime. I am designing this system to be targeted at people who are suffering from spending too much time on their devices, and to help them learn to limit screentime, so as they have more time in their day to partake in other activities which they may deem as more important. In other words, the aim is to decrease procrastination.</p>
+        
+    <p class="text">With my model, I aim to achieve: </p>
+        <ul class="text">
+            <li >I wish to use a button that sends a signal to turn this on/off as a digital input/output, and I also wish to use the amount of screentime a user uses as an analogue input. Using this data, I wish to output the amount of screentime as a line graph for an analogue output.</li>
+            <li>I wish to gather and store it in firebase.</li>
+            <li>I wish to use this information to deliver feedback that is relevant to the user on how they can improve their mental health.</li>
+        </ul>   
+    <p class="text">The what if questions that I will be looking at include what the effect of using my system will have on the user's mental health, and I wish to also use data from a case study to compare what screentime is considered healthy for a person given their age and recommend activities based on their screentime, their age, and the amount of free time which they have.  </p>
+    <p>During my investigation, I conducted a survey on how people think that they are affected by excess amounts of screentime, and the results told me that there was a need for a reduction in people's screentime.</p>
+    <h2>Survey Results</h2>
+    <img src="q2.PNG">
+    <img src="q3.PNG">
+    <img src="q5.PNG">
+    <img src="q7.PNG">
     </div>
     </body>
 </html>
